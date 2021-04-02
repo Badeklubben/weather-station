@@ -17,13 +17,13 @@ while (text:=input("> ").lower()) != "quit":
             print("Server shut down")
             break
 
-        print("Location\tmonth\ttemperature\train\t\tentry number")
+        print("Location\tmonth\ttemperature\train")
         #loop as long as the client is recieving data
         while True:
             try:
                 data = sock.recv(2048)
                 d = pickle.loads(data)
-                print(f"{d[1]}\t\t{d[2]}\t{d[3]}\t\t{d[4]}\t\t{d[0]}")
+                print(f"{d[1]}\t\t{d[2]}\t{d[3]}\t\t{d[4]}")
             except timeout:
                 break
 
