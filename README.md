@@ -2,12 +2,12 @@
 
 First mandatory assignment in inf142
 
-1. Weather_station//tcp_server.py
+1. Weather_station//tcp_client.py
         -Instantiate a station simulator
         -Transfer when connected
 
-2. Storage//tcp_client.py
-        -Recive data from tcp_server
+2. Storage//tcp_server.py
+        -Recive data from tcp_clients
         -Save to weather-data.db
 
 3. Storage//udp_server.py

@@ -9,9 +9,11 @@ print("Welcome to FMI!")
 
 while (text:=input("> ").lower()) != "quit":
     #seperate between different commands
-    if text in ("all","temp","rain","sd"):
+    if text in ("all","sd"):
 
+        #storage 0 and 1
         sock.sendto(text.encode(),("localhost",4444))
+        sock.sendto(text.encode(),("localhost",2222))
 
         if text == "sd":
             print("Server shut down")
