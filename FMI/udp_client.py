@@ -12,16 +12,12 @@ while (text:=input("> ").lower()) != "quit":
 
     #storage 0 and 1
     if(text in ("bergen","karmøy")):     
-        try:
-            sock.sendto(text.encode(),("localhost",4444))
-        except:
-            print("this local server is down!")
+        sock.sendto(text.encode(),("localhost",4444))
+
     
     elif(text == "oslo"):
-        try:
-            sock.sendto(text.encode(),("localhost",2222))
-        except:
-            print("this local server is down!")
+        sock.sendto(text.encode(),("localhost",2222))
+
     
     elif text == "help":
         print("Enter location name!")
@@ -38,6 +34,9 @@ while (text:=input("> ").lower()) != "quit":
             d = pickle.loads(data)
             print(f"{d[1]}\t\t{d[2]}\t{d[3]}\t\t{d[4]}")
         except timeout:
+            break
+        except:
+            print("this local server is down!")
             break
 
 
