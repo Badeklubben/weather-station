@@ -13,7 +13,7 @@ def accept(sock):
 def read(conn):
     ###
     # recive data from accepted connection
-    # ###
+    ####
     eData = conn.recv(2048)
     if eData:
         data = pickle.loads(eData)
@@ -35,7 +35,6 @@ print("Storage server running...")
 
 #connect to local database
 # Loc,Month,Temp,Rain
-weatherData = ["","",0,0]
 slConn = sl.connect("weather-data.db")
 sql = "INSERT INTO WEATHER (location,month,temperature,rain) values(?,?,?,?)"
 

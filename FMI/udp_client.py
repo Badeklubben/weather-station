@@ -9,30 +9,36 @@ print("Welcome to FMI!")
 
 while (text:=input("> ").lower()) != "quit":
     #seperate between different commands
-    if text in ("all","sd"):
 
-        #storage 0 and 1
-        sock.sendto(text.encode(),("localhost",4444))
-        sock.sendto(text.encode(),("localhost",2222))
-
-        if text == "sd":
-            print("Server shut down")
-            break
-
-        print("Location\tmonth\ttemperature\train")
-        #loop as long as the client is recieving data
-        while True:
-            try:
-                data = sock.recv(2048)
-                d = pickle.loads(data)
-                print(f"{d[1]}\t\t{d[2]}\t{d[3]}\t\t{d[4]}")
-            except timeout:
-                break
-
+    #storage 0 and 1
+    if(text in ("bergen","karmøy")):     
+        try:
+            sock.sendto(text.encode(),("localhost",4444))
+        except:
+            print("this local server is down!")
+    
+    elif(text == "oslo"):
+        try:
+            sock.sendto(text.encode(),("localhost",2222))
+        except:
+            print("this local server is down!")
+    
     elif text == "help":
-        print("all\t\tall data sorted by time\ntemp\t\tall data sorted by temperature\nrain\t\tall data sorted by amount of rain\nsd\t\tshut down server")
+        print("Enter location name!")
+        continue
     else:
         print("unknown command! (help)")
+        continue
+
+    print("Location\tmonth\ttemperature\train")
+    #loop as long as the client is recieving data
+    while True:
+        try:
+            data = sock.recv(2048)
+            d = pickle.loads(data)
+            print(f"{d[1]}\t\t{d[2]}\t{d[3]}\t\t{d[4]}")
+        except timeout:
+            break
 
 
 
