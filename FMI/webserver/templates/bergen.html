@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in weather %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <small class="article-content">{{ post[2] }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post[1] }}</a></h2>
+            <p class="article-content">{{ post[3] }}</p>
+            <p class="article-content">{{ post[4] }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

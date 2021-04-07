@@ -13,7 +13,7 @@ print("Server up")
 while True:
     msg,address = sock.recvfrom(2048)
     command = msg.decode().lower().capitalize()
-    
+
     data = slConn.execute(f"SELECT * FROM WEATHER WHERE location = '{command}'")
 
     #send in small chunks
