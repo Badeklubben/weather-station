@@ -26,8 +26,13 @@ def oslo():
 def karmøy():
     w.karmøy()
     # s.avg_temp(w.karmøytemps)
-    return render_template('karmøy.html', weather=w.karmøytemps)       
+    return render_template('karmøy.html', weather=w.karmøytemps)
 
+
+
+@app.route('/Day')
+def Day():
+    return render_template('day.html', weather=w.bergentemps)
 
 
 

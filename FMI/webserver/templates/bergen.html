@@ -4,11 +4,12 @@
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <small class="article-content">{{ post[2] }}</small>
+              <!-- <small class="article-content">Day {{ post[2] }}</small> -->
+              <a class="mr-2" href="/Day">Day {{ post[2] }}</a>
             </div>
-            <h2><a class="article-title" href="#">{{ post[1] }}</a></h2>
-            <p class="article-content">{{ post[3] }}</p>
+            <h1>{{post[1]}}</h1>
             <p class="article-content">{{ post[4] }}</p>
+            <p class="article-content">Avg temp of the day {{ post[4] }}</p>
           </div>
         </article>
     {% endfor %}

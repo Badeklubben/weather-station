@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for x in weather%}
+        {% if x[2] == 1 %}
+            <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <!-- <a class="mr-2" href="#">Day {{ x[2] }}</a> -->
+                <p class="article-content">Hour {{ x[2] }}</p>
+              </div>
+              <h1>{{x[1]}}</h1>
+              <p class="article-content">{{ x[4] }}</p>
+              <p class="article-content">Temp each hour {{ x[4] }}</p>
+            </div>
+        </article>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}
