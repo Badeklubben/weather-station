@@ -1,11 +1,8 @@
 from flask import Flask, render_template, url_for
-from weather import weather as w
-from weather import structuring as s
-import os
+from station import weather as w
+from station import structuring as s
+
 app = Flask(__name__)
-
-
-
 
 
 @app.route("/")

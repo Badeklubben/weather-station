@@ -12,7 +12,6 @@ karmøytemps = []
 
 def oslo():
     text = 'oslo'
-
     sock.sendto(text.encode(),("localhost",2222))
 
     while True:
@@ -31,7 +30,6 @@ def bergen():
     text = 'bergen'
     sock.sendto(text.encode(),("localhost",4444))
 
-
     while True:
             try:
                 data = sock.recv(2048)
@@ -44,9 +42,9 @@ def bergen():
                 break
 # bergen()
 
+
 def karmøy():
     text = 'karmøy'
-
     sock.sendto(text.encode(),("localhost",4444))
     
     while True:
