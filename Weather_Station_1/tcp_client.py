@@ -19,22 +19,27 @@ except:
 
 
 # Temp,Rain,Loc,Month
-weatherData = ["","",0,0]
+weatherData = ["",0,"",0,0]
 
 # Instantiate a station simulator
 local_station = StationSimulator(simulation_interval=1,location="Karmøy")
 # Turn on the simulator
 local_station.turn_on()
+dayOfMonth = 0
 
 while True:
     # Sleep for 1 second to wait for new weather data
     # to be simulated
     sleep(1)
 
+    if(local_station._hour == 0):
+        dayOfMonth += 1
+
     weatherData[0] = local_station.location
-    weatherData[1] = local_station.month
-    weatherData[2] = local_station.temperature
-    weatherData[3] = local_station.rain
+    weatherData[1] = dayOfMonth
+    weatherData[2] = local_station.month
+    weatherData[3] = local_station.temperature
+    weatherData[4] = local_station.rain
 
     try:
         sock.sendall(pickle.dumps(weatherData))
