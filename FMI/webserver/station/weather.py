@@ -13,6 +13,8 @@ karmøytemps = []
 def oslo(x=''):
     text = f"oslo {x}"
     sock.sendto(text.encode(),("localhost",2222))
+    oslotemps.clear()
+
 
     while True:
             try:
@@ -24,7 +26,7 @@ def oslo(x=''):
             except:
                 print("this local server is down!")
                 break
-# oslo()
+    
 
 def bergen():
     text = 'bergen'

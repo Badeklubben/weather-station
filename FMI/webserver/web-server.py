@@ -14,19 +14,17 @@ def home():
 
 @app.route("/bergen")
 def bergen():
-    w.bergen()
+
     return render_template('bergen.html', weather=w.bergentemps)
 
 @app.route("/oslo")
 def oslo():
-    w.oslo(2)
-    # avg_temp(w.oslotemps)
+    w.oslo()
     return render_template('oslo.html', weather=w.oslotemps)
 
 @app.route("/karmøy")
 def karmøy():
-    w.karmøy()
-    # s.avg_temp(w.karmøytemps)
+
     return render_template('karmøy.html', weather=w.karmøytemps)
 
 
@@ -34,19 +32,18 @@ def karmøy():
 @app.route('/day')
 def Day():
     req = request.args.get('day')
-    day = int(req[0])
+    day = int(req[:2])
+    print(day)
     loc = req
-    w.oslo(day)
-    print(w.oslo(day))
-    w.bergen(day)
-    w.karmøy(day)
     print(loc)
+    
     if 'Bergen' in loc:
-        return render_template('day.html', weather=w.bergentemps[day], days=int(day))
-    elif 'Karmøy' in loc:
-        return render_template('day.html', weather=w.karmøytemps, days=int(day))
+        return render_template('day.html', weather=w.bergentemps)
+    elif 'Karmøy' in loc:   
+        return render_template('day.html', weather=w.karmøytemps)
     elif 'Oslo' in loc:
-        return render_template('day.html', weather=w.Oslo, days=int(day))
+        w.oslo(day)
+        return render_template('day.html', weather=w.oslotemps, days=day)
 
 if __name__ == '__main__':
     app.run(debug=True)

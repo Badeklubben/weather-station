@@ -1,18 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
       {% for x in weather %}
-        {% if x[2] == days %}
             <article class="media content-section">
             <div class="media-body">
               <div class="article-metadata">
                 <!-- <a class="mr-2" href="#">Day {{ x[2] }}</a> -->
-                <p class="article-content">Hour {{ x[2] }}</p>
+                <p class="article-content">{{ x[2] }}th of {{ x[3] }}</p>
               </div>
               <h1>{{x[1]}}</h1>
               <p class="article-content">{{ x[5] }}</p>
               <p class="article-content">Temp each hour {{ x[4] }}</p>
             </div>
         </article>
-        {% endif %}
       {% endfor %}
 {% endblock content %}
