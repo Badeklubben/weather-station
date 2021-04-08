@@ -10,8 +10,8 @@ karmøytemps = []
 
 
 
-def oslo():
-    text = 'oslo'
+def oslo(x=''):
+    text = f"oslo {x}"
     sock.sendto(text.encode(),("localhost",2222))
 
     while True:

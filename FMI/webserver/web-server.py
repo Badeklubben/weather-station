@@ -19,7 +19,7 @@ def bergen():
 
 @app.route("/oslo")
 def oslo():
-    w.oslo()
+    w.oslo(2)
     # avg_temp(w.oslotemps)
     return render_template('oslo.html', weather=w.oslotemps)
 
@@ -36,9 +36,13 @@ def Day():
     req = request.args.get('day')
     day = int(req[0])
     loc = req
+    w.oslo(day)
+    print(w.oslo(day))
+    w.bergen(day)
+    w.karmøy(day)
     print(loc)
     if 'Bergen' in loc:
-        return render_template('day.html', weather=w.bergentemps, days=int(day))
+        return render_template('day.html', weather=w.bergentemps[day], days=int(day))
     elif 'Karmøy' in loc:
         return render_template('day.html', weather=w.karmøytemps, days=int(day))
     elif 'Oslo' in loc:
