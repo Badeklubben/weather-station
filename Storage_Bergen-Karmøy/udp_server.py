@@ -1,5 +1,7 @@
 from socket import socket, AF_INET, SOCK_DGRAM
 import pickle,sqlite3 as sl
+import structuring as st
+
 
 #set up server
 sock = socket(AF_INET,SOCK_DGRAM)
@@ -24,7 +26,7 @@ while True:
             if day > 32:
                 data = slConn.execute(f"SELECT * FROM WEATHER WHERE location = '{command}' and day = {day}")
 
-
+    #data = st.avg_temp(data)
     #snitt = (plass,dag,månad,snitt_temp,snitt_regn)
     #data = (snitt,snitt,snitt,...)
 
