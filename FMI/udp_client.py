@@ -26,13 +26,13 @@ while (text:=input("> ").lower()) != "quit":
         print("unknown command! (help)")
         continue
 
-    print("Location\tmonth\ttemperature\train")
+    print("Location\tday\tmonth\ttemperature\train")
     #loop as long as the client is recieving data
     while True:
         try:
             data = sock.recv(2048)
             d = pickle.loads(data)
-            print(f"{d[1]}\t\t{d[2]}\t{d[3]}\t\t{d[4]}")
+            print(f"{d[1]}\t\t{d[2]}\t{d[3]}\t{d[4]}\t\t{d[5]}")
         except timeout:
             break
         except:
