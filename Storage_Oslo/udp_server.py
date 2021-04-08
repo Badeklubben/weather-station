@@ -1,5 +1,18 @@
 from socket import socket, AF_INET, SOCK_DGRAM
 import pickle,sqlite3 as sl
+import structuring as st
+
+def toInt(i:str) -> int:
+    try: 
+        n = int(i)
+        return n
+    except:
+        return None
+
+def send(data,address):
+    #send in small chunks
+    for row in data:
+        sock.sendto(pickle.dumps(row),address)
 
 #set up server
 sock = socket(AF_INET,SOCK_DGRAM)
@@ -12,14 +25,22 @@ print("Server up")
 
 while True:
     msg,address = sock.recvfrom(2048)
-    command = msg.decode().lower().capitalize()
-    
-    data = slConn.execute(f"SELECT * FROM WEATHER WHERE location = '{command}'")
+    comm_div = msg.decode().lower().capitalize().split(" ")
 
-    #send in small chunks
+    if len(comm_div) > 1:
+        if day:=toInt(comm_div[1]):
+            if day < 32:
+                data = slConn.execute(f"SELECT * FROM WEATHER WHERE location = '{comm_div[0]}' AND day = {day}")
+                print(f"Sending data to {address}")
+                send(data,address)
+                continue
+    
+
+    d = slConn.execute(f"SELECT * FROM WEATHER WHERE location = '{comm_div[0]}'")
+    data = st.avg_temp(d)
     print(f"Sending data to {address}")
-    for row in data:
-        sock.sendto(pickle.dumps(row),address)
+    send(data,address)
+    
     
 
 
