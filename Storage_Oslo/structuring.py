@@ -1,26 +1,19 @@
 
 def avg_temp(locationData):
-    dailySumTemp = 0
-    dailyAverageTemp = 0
+    temps = {}
+    preps = {}
 
-    dailySumPrep = 0
-    dailyAveragePrep = 0
-    hourCount = 0
-
-    snitt = []
     for item in locationData:
-        dailySumTemp += item[4]
-        dailySumPrep += item[5]
-        if hourCount == 23:
-            dailyAverageTemp = dailySumTemp/24
-            dailyAverageTemp = round(dailyAverageTemp, 2)
-            
-            dailyAveragePrep = dailySumPrep/24
-            dailyAveragePrep = round(dailyAveragePrep, 2)
-
-            snitt.append([None,item[1], item[2], item[3], dailyAverageTemp, dailyAveragePrep])
-
-            hourCount = 0
-        hourCount += 1
-
+        if not item[2] in temps.keys():
+            temps[item[2]] = [0,0]
+            preps[item[2]] = [0,0]
+        temps[item[2]][0] += item[4]
+        preps[item[2]][0] += item[5]
+        temps[item[2]][1] += 1
+        preps[item[2]][1] += 1
+    
+    snitt = []
+    for key in temps.keys():
+        snitt.append([None,item[1], key, item[3], round(temps[key][0]/temps[key][1],2), round(preps[key][0]/preps[key][1],2)])
+    
     return snitt

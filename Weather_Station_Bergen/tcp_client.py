@@ -28,13 +28,15 @@ local_station = StationSimulator(simulation_interval=1,location="Bergen")
 local_station.turn_on()
 dayOfMonth = 0
 
+##nokon ganger bruker sim meir el mindre enn 1 sek
+hourOfDay = 0
+
 while True:
+    if hourOfDay == 0:
+        dayOfMonth += 1
     # Sleep for 1 second to wait for new weather data
     # to be simulated
     sleep(1)
-
-    if(local_station._hour == 0 or dayOfMonth == 0):
-        dayOfMonth += 1
 
     if dayOfMonth > local_station._days_of_month[local_station.month]:
         print("The end is nigh!")
@@ -51,7 +53,10 @@ while True:
     except:
         print(f"connection to server lost, terminating session")
         break
-
+    
+    hourOfDay += 1
+    if hourOfDay == 24:
+        hourOfDay = 0
 
 local_station.shut_down()
 
