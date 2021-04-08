@@ -1,15 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
-    {% for post in posts %}
+    {% for post in weather %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-
-              <small class="article-content">{{ post.date_posted }}</small>
+              <small class="article-content">{{ post.date }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
+            <h2><a class="article-title" href="/{{ post.loclower }}">{{ post.location }}</a></h2>
+            <p class="article-content">The temp is: {{ post.temp }}</p>
+            <p class="article-content">The Rain precipitation is: {{ post.rain }} mm</p>
           </div>
         </article>
     {% endfor %}
 {% endblock content %}
+{% block information %}
+<div class="content-section">
+  <h3>Information</h3>
+  <p class='article-content'>This is our website
+    
+    where we use information from three different weather stations, and you can accsess all of the information that the different stations post
+  </p>
+{% endblock %}

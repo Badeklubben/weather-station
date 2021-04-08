@@ -60,3 +60,35 @@ def karmøy(x=''):
                 print("this local server is down!")
                 break
 # karmøy()
+
+"""
+this is the homepage example, this just shows how everything will look
+"""
+
+homepage = [
+    {
+        'location' : 'Bergen',
+        'temp': 9, 
+        'rain': 0.5,
+        'date': '3th of May',
+        'loclower': 'bergen'
+
+    },
+    {
+        'location' : 'Karmøy',
+        'temp': 6, 
+        'rain': 1.5,
+        'date': '3th of May',
+        'loclower': 'karmøy'
+
+    },
+    {
+        'location' : 'Oslo',
+        'temp': 15, 
+        'rain': 0,
+        'date': '3th of May',
+        'loclower': 'oslo'
+
+    }
+    
+]

@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html')
+    return render_template('home.html', weather=w.homepage, title='Home')
 
 
 @app.route("/bergen")
@@ -20,12 +20,12 @@ def bergen():
 @app.route("/oslo")
 def oslo():
     w.oslo()
-    return render_template('oslo.html', weather=w.oslotemps, title='Oslo')
+    return render_template('oslo.html', weather=w.oslotemps, title='Oslo', style="/oslo.css")
 
 @app.route("/karmøy")
 def karmøy():
     w.karmøy()
-    return render_template('karmøy.html', weather=w.karmøytemps, title='Karmøy')
+    return render_template('karmøy.html', weather=w.karmøytemps, title='Karmøy', style="/karmoy.css")
 
 
 
@@ -33,7 +33,6 @@ def karmøy():
 def Day():
     req = request.args.get('day')
     day = int(req[:2])
-    
     print(day)
     loc = req
     print(loc)
@@ -43,7 +42,7 @@ def Day():
         return render_template('day.html', weather=w.bergentemps, title="Bergen daily", style="/bergen.css")
     elif 'Karmøy' in loc:
         w.karmøy(day)   
-        return render_template('day.html', weather=w.karmøytemps, title="Karmøy daily", style="/karmøy.css")
+        return render_template('day.html', weather=w.karmøytemps, title="Karmøy daily", style="/karmoy.css")
     elif 'Oslo' in loc:
         w.oslo(day)
         return render_template('day.html', weather=w.oslotemps, title="Oslo daily", style="/oslo.css")
