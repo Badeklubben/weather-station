@@ -26,12 +26,12 @@ def oslo(x=''):
             except:
                 print("this local server is down!")
                 break
-    
+# oslo()
 
-def bergen():
-    text = 'bergen'
+def bergen(x=''):
+    text = f"bergen {x}"
     sock.sendto(text.encode(),("localhost",4444))
-
+    bergentemps.clear()
     while True:
             try:
                 data = sock.recv(2048)
@@ -45,10 +45,10 @@ def bergen():
 # bergen()
 
 
-def karmøy():
-    text = 'karmøy'
+def karmøy(x=''):
+    text = f"karmøy {x}"
     sock.sendto(text.encode(),("localhost",4444))
-    
+    karmøytemps.clear()
     while True:
             try:
                 data = sock.recv(2048)
@@ -60,8 +60,3 @@ def karmøy():
                 print("this local server is down!")
                 break
 # karmøy()
-
-
-
-# print(oslotemps)
-# print(avg_temp(oslotemps))
