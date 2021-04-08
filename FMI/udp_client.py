@@ -11,11 +11,11 @@ while (text:=input("> ").lower()) != "quit":
     #seperate between different commands
 
     #storage 0 and 1
-    if(text in ("bergen","karmøy")):     
+    if(text[0] in ("bergen","karmøy")):     
         sock.sendto(text.encode(),("localhost",4444))
 
     
-    elif(text == "oslo"):
+    elif(text[0] == "oslo"):
         sock.sendto(text.encode(),("localhost",2222))
 
     
