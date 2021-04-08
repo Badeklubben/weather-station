@@ -34,6 +34,10 @@ while True:
 
     if(local_station._hour == 0):
         dayOfMonth += 1
+    
+    if dayOfMonth > local_station._days_of_month[local_station.month]:
+        print("The end is nigh!")
+        break
 
     weatherData[0] = local_station.location
     weatherData[1] = dayOfMonth
