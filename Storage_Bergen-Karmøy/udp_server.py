@@ -21,7 +21,7 @@ sock.bind(("localhost",4444))
 #connect to local database
 slConn = sl.connect("weather-data.db")
 
-print("Server up")
+print("[Bergen/Karmøy] launching FMI communication server")
 
 while True:
     msg,address = sock.recvfrom(2048)

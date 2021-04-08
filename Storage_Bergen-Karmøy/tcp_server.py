@@ -31,7 +31,7 @@ sock.listen()
 sock.setblocking(False)
 sel.register(sock,EVENT_READ,True)
 
-print("Storage server running...")
+print("[Bergen/Karmøy] Launching the storage server")
 
 #connect to local database
 # Loc,Day,Month,Temp,Rain

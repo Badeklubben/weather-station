@@ -10,6 +10,7 @@ from time import sleep
 # ###
 
 print("--Weather station TCP client--")
+print("Welcome to Karmøy weather station")
 #create connection to server
 try:
     sock = create_connection(("localhost", 5555))
