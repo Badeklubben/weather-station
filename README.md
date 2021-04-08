@@ -18,3 +18,5 @@ First mandatory assignment in inf142
         -request data from udp_server and display
         - "help" for list of commands
     
+Empty db by opening it in "DB browser for sqlite" and executing the file "clear.sql" in the
+"Execute SQL" tab
