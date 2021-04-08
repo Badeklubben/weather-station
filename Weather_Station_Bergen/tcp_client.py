@@ -22,7 +22,7 @@ except:
 weatherData = ["",0,"",0,0]
 
 # Instantiate a station simulator
-local_station = StationSimulator(simulation_interval=1)
+local_station = StationSimulator(simulation_interval=1,location="Bergen")
 # Turn on the simulator
 local_station.turn_on()
 dayOfMonth = 0
@@ -32,7 +32,7 @@ while True:
     # to be simulated
     sleep(1)
 
-        if(local_station._hour == 0 or dayOfMonth == 0):
+    if(local_station._hour == 0 or dayOfMonth == 0):
         dayOfMonth += 1
 
     if dayOfMonth > local_station._days_of_month[local_station.month]:

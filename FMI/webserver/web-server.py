@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, redirect, request
 from station import weather as w
-from station import structuring as s
+
 
 
 app = Flask(__name__)
