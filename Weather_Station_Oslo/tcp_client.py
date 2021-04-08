@@ -10,7 +10,6 @@ from time import sleep
 # ###
 
 print("--Weather station TCP client--")
-print("Welcome to Oslo weather station")
 #create connection to server
 try:
     sock = create_connection(("localhost", 3333))
@@ -26,14 +25,14 @@ weatherData = ["",0,"",0,0]
 local_station = StationSimulator(simulation_interval=1,location="Oslo")
 # Turn on the simulator
 local_station.turn_on()
-dayOfMonth = 0
+dayOfMonth = 1
 
 while True:
     # Sleep for 1 second to wait for new weather data
     # to be simulated
     sleep(1)
 
-    if(local_station._hour == 0):
+    if(local_station._hour == 0 and dayOfMonth != 1):
         dayOfMonth += 1
     
     if dayOfMonth > local_station._days_of_month[local_station.month]:

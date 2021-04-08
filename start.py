@@ -12,7 +12,7 @@ os.system('start cmd /k "python Weather_Station_Karmøy/tcp_client.py"')
 
 
 # # Starter Oslo delen
-os.system('start cmd /k "python Storage_Oslo/serverStart.py"')
+os.system('start cmd /c "python Storage_Oslo/serverStart.py"')
 
 time.sleep(1)
 
