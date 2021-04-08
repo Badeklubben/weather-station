@@ -16,6 +16,13 @@ while True:
 
     data = slConn.execute(f"SELECT * FROM WEATHER WHERE location = '{command}'")
 
+    #hent fra ein dag:
+    # data = slConn.execute(f"SELECT * FROM WEATHER WHERE location = '{command}' and day = {day_number}")
+
+
+    #snitt = (plass,null,månad,snitt_temp,snitt_regn)
+    #data = (snitt,snitt,snitt,...)
+
     #send in small chunks
     print(f"Sending data to {address}")
     for row in data:
