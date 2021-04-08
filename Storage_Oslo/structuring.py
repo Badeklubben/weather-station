@@ -18,7 +18,7 @@ def avg_temp(locationData):
             dailyAveragePrep = dailySumPrep/24
             dailyAveragePrep = round(dailyAveragePrep, 2)
 
-            snitt.append([None,item[1], item[2], item[3], dailyAveragePrep, dailyAveragePrep])
+            snitt.append([None,item[1], item[2], item[3], dailyAverageTemp, dailyAveragePrep])
 
             hourCount = 0
         hourCount += 1
