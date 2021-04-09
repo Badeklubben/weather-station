@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, redirect, request
-from station import weather as w
+from station import reciever as r
 
 
 
@@ -9,23 +9,23 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', weather=w.homepage, title='Home')
+    return render_template('home.html', weather=r.homepage, title='Home')
 
 
 @app.route("/bergen")
 def bergen():
-    w.bergen()
-    return render_template('bergen.html', weather=w.bergentemps, title='Bergen', style="/bergen.css")
+    r.bergen()
+    return render_template('bergen.html', weather=r.bergentemps, title='Bergen', style="/bergen.css")
 
 @app.route("/oslo")
 def oslo():
-    w.oslo()
-    return render_template('oslo.html', weather=w.oslotemps, title='Oslo', style="/oslo.css")
+    r.oslo()
+    return render_template('oslo.html', weather=r.oslotemps, title='Oslo', style="/oslo.css")
 
 @app.route("/karmøy")
 def karmøy():
-    w.karmøy()
-    return render_template('karmøy.html', weather=w.karmøytemps, title='Karmøy', style="/karmoy.css")
+    r.karmøy()
+    return render_template('karmøy.html', weather=r.karmøytemps, title='Karmøy', style="/karmoy.css")
 
 
 
@@ -36,14 +36,14 @@ def Day():
     loc = req
 
     if 'Bergen' in loc:
-        w.bergen(day)
-        return render_template('day.html', weather=w.bergentemps, title="Bergen daily", style="/bergen.css")
+        r.bergen(day)
+        return render_template('day.html', weather=r.bergentemps, title="Bergen daily", style="/bergen.css")
     elif 'Karmøy' in loc:
-        w.karmøy(day)   
-        return render_template('day.html', weather=w.karmøytemps, title="Karmøy daily", style="/karmoy.css")
+        r.karmøy(day)   
+        return render_template('day.html', weather=r.karmøytemps, title="Karmøy daily", style="/karmoy.css")
     elif 'Oslo' in loc:
-        w.oslo(day)
-        return render_template('day.html', weather=w.oslotemps, title="Oslo daily", style="/oslo.css")
+        r.oslo(day)
+        return render_template('day.html', weather=r.oslotemps, title="Oslo daily", style="/oslo.css")
     else:
         return redirect(url_for("home"))
 
