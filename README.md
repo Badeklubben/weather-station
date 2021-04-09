@@ -12,7 +12,9 @@ Team members:
 Some Information:
 We have built a program collecting data from three fictional weather stations. The weather stations "reads" the weather and transfers it to one of two storages. Using our web-page, a client can access data from both of the storages.
 The "README.png" is from an older version, but it still shows how it is all connected.
-			---------Running---------
+
+					----Running----
+
 On Windows:
 
 1. Run "start.py"
@@ -34,7 +36,9 @@ The commands:
 	3. {location name} {(1-31)} 	- returns data for each hour of the chosen day and location
 
 Locations = bergen,karmøy and oslo
+
 					----Extensions----
+
 1. sqlite:
 
 We created a sqlite database called "weather-data.db" and placed it in both of the storages. The db holds a single table called "WEATHER" with 6 coloumns: 
