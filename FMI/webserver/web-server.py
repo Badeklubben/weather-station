@@ -33,10 +33,8 @@ def karmøy():
 def Day():
     req = request.args.get('day')
     day = int(req[:2])
-    print(day)
     loc = req
-    print(loc)
-    
+
     if 'Bergen' in loc:
         w.bergen(day)
         return render_template('day.html', weather=w.bergentemps, title="Bergen daily", style="/bergen.css")
@@ -46,6 +44,8 @@ def Day():
     elif 'Oslo' in loc:
         w.oslo(day)
         return render_template('day.html', weather=w.oslotemps, title="Oslo daily", style="/oslo.css")
+    else:
+        return redirect(url_for("home"))
 
 if __name__ == '__main__':
     app.run(debug=True)
