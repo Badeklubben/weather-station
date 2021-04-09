@@ -12,7 +12,7 @@ Team members:
 Some Information:
 We have built a program collecting data from three fictional weather stations. The weather stations "reads" the weather and transfers it to one of two storages. Using our web-page, a client can access data from both of the storages.
 The "README.png" is from an older version, but it still shows how it is all connected.
-					----Running----
+			---------Running---------
 On Windows:
 
 1. Run "start.py"
