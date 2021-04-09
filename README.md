@@ -20,16 +20,16 @@ Some of the files are nearly duplicates and best commented in "Storage_Bergen_Ka
 
 On Windows:
 
-1. Run "start.py"
-2. Run "website-start.py"
-3. Go to "localhost:5000"
+	1. Run "start.py"
+	2. Run "website-start.py"
+	3. Go to "localhost:5000"
 
 On others:
 
-1. Run "tcp_server.py" and "udp_server.py" in both of the storage folders
-2. Run "tcp_client.py" in all three of the weather_station folders (try to start them as close to eachother as possible for higher realism)
-3. Run "web-server.py" in FMI/webserver/
-4. Go to "localhost:5000"
+	1. Run "tcp_server.py" and "udp_server.py" in both of the storage folders
+	2. Run "tcp_client.py" in all three of the weather_station folders (try to start them as close to eachother as possible for higher realism)
+	3. Run "web-server.py" in FMI/webserver/
+	4. Go to "localhost:5000"
 
 
 If you want to try it in a terminal just follow the above steps, but instead of "web-server.py" you should run "udp_client.py" in the FMI folder.
