@@ -38,6 +38,12 @@ print("[Oslo] Launching the storage server")
 slConn = sl.connect("weather-data.db")
 sql = "INSERT INTO WEATHER (location,day,month,temperature,rain) values(?,?,?,?,?)"
 
+#clear out the database (see README)
+slConn.execute("DELETE FROM WEATHER")
+slConn.execute("DELETE FROM sqlite_sequence")
+slConn.commit()
+slConn.execute("VACUUM")
+
 while True:
     events = sel.select()
     for key,_ in events:
