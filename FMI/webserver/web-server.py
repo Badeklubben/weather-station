@@ -9,7 +9,10 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', weather=r.homepage, title='Home')
+    r.bergen()
+    r.oslo()
+    r.karmøy()
+    return render_template('home.html', bergen=r.bergentemps, oslo=r.oslotemps, karmøy=r.karmøytemps, title='Home')
 
 
 @app.route("/bergen")

@@ -1,6 +1,6 @@
 
 body {
-  background-image: url(../static/images/bg.jpg);
+  background-image: url(../static/images/karmoy.png);
   margin-left: 10rem;
   margin-top: 10rem;
   background-repeat: no-repeat;
@@ -52,11 +52,7 @@ a.article-title:hover {
   white-space: pre-line;
 }
 
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
+
 
 .article-metadata {
   padding-bottom: 1px;
@@ -75,14 +71,3 @@ a.article-title:hover {
   height: 25px;
   vertical-align: middle;
 }
-
-/* .account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
-
-.account-heading {
-  font-size: 2.5rem;
-} */
