@@ -1,8 +1,9 @@
 # Inf142M1
 
-			---------First mandatory assignment in inf142---------
+First mandatory assignment in inf142
 
 Team members:
+
 	- Gard Kalland
 	- Østen Edvardsen
 	- Stian Munkejord
@@ -34,6 +35,7 @@ On others:
 
 If you want to try it in a terminal just follow the above steps, but instead of "web-server.py" you should run "udp_client.py" in the FMI folder.
 The commands:
+
 	1. help
 	2. {location name}		- returns the average for each day at this location
 	3. {location name} {(1-31)} 	- returns data for each hour of the chosen day and location
