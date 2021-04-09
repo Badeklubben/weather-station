@@ -65,10 +65,10 @@ This was a problem, but it has never happened to any of us after we fixed it. Ho
 
 short on how it works
 
-	1. If a site i clicked that there exsits an route for, the function beneath wil start
-	2. The function calls a function that is in the receive script and the r.{{name}}temps will be filled with information
-	3. it returns a render_template that takes in different variables, one is the html file that it needs to find, then the weather which uses the r.{{name}}temps, then the title which changes the title of the website, and last the style which chooses the .ccs file that is going to be used
-	4. layout.html runs and and the website is posted, layout.html takes in the information that the render_template gives, but in the render_template it dosent specify that layout.html is the one that is being ran, beacuse in each of the html files that the render_template defines is an extension of the layout.html file, and everything that is posted inside the {{name}}.html file will either lay inside the {% block content %}{% endblock %} or   {% block information %}{% endblock %}
+1. If a site i clicked that there exsits an route for, the function beneath wil start
+2. The function calls a function that is in the receive script and the r.{{name}}temps will be filled with information
+3. it returns a render_template that takes in different variables, one is the html file that it needs to find, then the weather which uses the r.{{name}}temps, then the title which changes the title of the website, and last the style which chooses the .ccs file that is going to be used
+4. layout.html runs and and the website is posted, layout.html takes in the information that the render_template gives, but in the render_template it dosent specify that layout.html is the one that is being ran, beacuse in each of the html files that the render_template defines is an extension of the layout.html file, and everything that is posted inside the {{name}}.html file will either lay inside the {% block content %}{% endblock %} or   {% block information %}{% endblock %}
 
 
 more detalied explanation
