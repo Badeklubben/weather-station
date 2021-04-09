@@ -1,6 +1,6 @@
 # Inf142M1
 
-First mandatory assignment in inf142
+	First mandatory assignment in inf142
 
 Team members:
 
@@ -17,7 +17,7 @@ The "README.png" is from an older version, but it still shows how it is all conn
 
 Some of the files are nearly duplicates and best commented in "Storage_Bergen_Karmøy" and "Weather_Station_Bergen" 
 
-					----Running----
+	Running
 
 On Windows:
 
@@ -42,7 +42,7 @@ The commands:
 
 Locations = bergen,karmøy and oslo
 
-					----Extensions----
+	Extensions
 
 1. sqlite:
 
