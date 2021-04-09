@@ -10,8 +10,11 @@ Team members:
 	- Lars Bysheim
 
 Some Information:
+
 We have built a program collecting data from three fictional weather stations. The weather stations "reads" the weather and transfers it to one of two storages. Using our web-page, a client can access data from both of the storages.
 The "README.png" is from an older version, but it still shows how it is all connected.
+
+Some of the files are nearly duplicates and best commented in "Storage_Bergen_Karmøy" and "Weather_Station_Bergen" 
 
 					----Running----
 
@@ -42,12 +45,14 @@ Locations = bergen,karmøy and oslo
 1. sqlite:
 
 We created a sqlite database called "weather-data.db" and placed it in both of the storages. The db holds a single table called "WEATHER" with 6 coloumns: 
+
 	1. id (autoincrementing, mostly there for debugging)
 	2. location
 	3. day (day of the month)
 	4. month
 	5. temperature
 	6. rain
+	
 When the storage tcp_server recives this data it executes a line of SQL, inserting it into the db.
 The udp_server fetches a piece of that db based on the client command.
 Using a sqlite database made it easy to fetch the wanted data without having to loop through all the data on each client request.
@@ -57,6 +62,7 @@ Since we are collecting data from a simulation and not real weather data, we can
 NB:
 We have had no problem with this, but
 if should experience a problem with duplicated data (ex: two May 2. or 48 hour in a day), try this:
+
 	1. Shut down everything
 	2. Download and run "DB BROWSER FOR SQLITE"
 	3. Open the weather-data.db in db browser. 

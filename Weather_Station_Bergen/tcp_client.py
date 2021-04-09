@@ -19,7 +19,7 @@ except:
     exit()
 
 
-# Temp,Rain,Loc,Month
+# Temp,Day,Month,Rain,Loc
 weatherData = ["",0,"",0,0]
 
 # Instantiate a station simulator
@@ -39,6 +39,7 @@ while True:
     sleep(1)
 
     if dayOfMonth > local_station._days_of_month[local_station.month]:
+        ##stop at the end of the month
         print("The end is nigh!")
         break
 

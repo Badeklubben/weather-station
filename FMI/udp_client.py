@@ -3,14 +3,15 @@ import pickle
 
 #set up client with timeout
 sock = socket(AF_INET,SOCK_DGRAM)
-sock.settimeout(3)
+sock.settimeout(1)
 
 print("Welcome to FMI!")
 
 while (text:=input("> ").lower()) != "quit":
     #seperate between different commands
 
-    #storage 0 and 1
+    #the command can consist of multiple words, but at this point we only care about
+    #the first
     comm = text.split(" ")
     if(comm[0] in ("bergen","karmøy")):     
         sock.sendto(text.encode(),("localhost",4444))
@@ -28,7 +29,8 @@ while (text:=input("> ").lower()) != "quit":
         continue
 
     print("Location\tday\tmonth\ttemperature\train")
-    #loop as long as the client is recieving data
+    #The data is transferd in small chunks, so we have to
+    #keep reciving and printing until the transfer is done
     while True:
         try:
             data = sock.recv(2048)

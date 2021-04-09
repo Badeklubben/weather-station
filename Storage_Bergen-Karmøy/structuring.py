@@ -1,11 +1,15 @@
 
 def avg_temp(locationData):
+    ###
+    # returns a list of average weather data for each day
+    # ###
     temps = {}
     preps = {}
 
     for item in locationData:
+        #if the dictionary does not contain values for this day, add them
         if not item[2] in temps.keys():
-            temps[item[2]] = [0,0]
+            temps[item[2]] = [0,0]   # {day_of_month:[sum_of_temperatures,number_of_temperatures]}
             preps[item[2]] = [0,0]
         temps[item[2]][0] += item[4]
         preps[item[2]][0] += item[5]
