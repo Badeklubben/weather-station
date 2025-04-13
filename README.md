@@ -104,5 +104,3 @@ Then there are the navbar that has the name of the website and three hyperlink w
 
 There are two places where it says {% block content %}{% endblock %} and  {% block information %}{% endblock %} these two can you find in the html file that the return render_template  link to “{{name}}.html”
 inside each “{{name}}.html” at the top it says {% extends "layout.html" %} this means that it is a “subfile” of the layout.html file and everything that everything that is inside the block content and block information will be posted to the website.
-
-
